@@ -1,4 +1,3 @@
-import DOMPurify from 'isomorphic-dompurify';
 import { supabase } from '@/lib/supabaseClient';
 
 export const dynamic = 'force-dynamic';
@@ -9,7 +8,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <main style={{ padding: 24, maxWidth: 800, margin: '0 auto' }}>
       <h1>{data.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(data.content_html || '') }} />
+      <div dangerouslySetInnerHTML={{ __html: data.content_html || '' }} />
     </main>
   );
 }
